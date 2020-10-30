@@ -93,5 +93,7 @@ public class Lab7 {
     private void runAnalysis(){
         // TODO
         helper.getAverageLikesPerCommets();
+        
+        helper.postWithMostLikedComments();
     }
 }
