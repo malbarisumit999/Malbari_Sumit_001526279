@@ -98,10 +98,14 @@ public class Lab7 {
         
         helper.postWithMostComments();
         
+         System.out.println("\n\n");
+        
         helper.inactiveUsersBasedOnPosts();
         
         helper.inactiveUsersBasedOnComments();
         
         helper.inactiveOverall();
+        
+        helper.proactiveOverall();
     }
 }
