@@ -205,7 +205,7 @@ public class AnalysisHelper {
         List<Map.Entry<Integer, Integer>> listOfEntries = new ArrayList<>(entrySet);
         Collections.sort(listOfEntries, comparator);
 
-        System.out.println("Top 5 Inactive Users on the basis of comments:");
+        System.out.println("Top 5 Inactive Users based on overall criteria:");
         if (inactiveOverall.size() > 5) {
             int j = 0;
             for (int i = 0; i < 5; i++) {
@@ -219,6 +219,44 @@ public class AnalysisHelper {
     }
     
     
-    
+    public void proactiveOverall(){
+           Map<Integer, User> user = DataStore.getInstance().getUsers();
+        Map<Integer, Post> posts = DataStore.getInstance().getPosts();
+        Map<Integer, Comment> comments = DataStore.getInstance().getComments();
+        Map<Integer, Integer> proactiveOverall = new HashMap<>();
+        
+        for(User users: user.values()){
+            proactiveOverall.put(users.getId(), users.getComments().size());
+        }
+        
+        for(Post post: posts.values()){
+            proactiveOverall.put(post.getUserId(), proactiveOverall.get(post.getUserId())+1);
+        }
+        
+        for(Comment comment : comments.values()){
+            proactiveOverall.put(comment.getUserId(), proactiveOverall.get(comment.getUserId()) + comment.getLikes());
+        }
+        
+        
+        List<Map.Entry<Integer, Integer>> list = new LinkedList<>(proactiveOverall.entrySet());
+        Collections.sort(list, new Comparator<Map.Entry<Integer, Integer>>() {
+            public int compare(Map.Entry<Integer, Integer> o1, Map.Entry<Integer, Integer> o2) {
+                return o2.getValue() - o1.getValue();
+            }
+        });
+        HashMap<Integer, Integer> temp = new LinkedHashMap<>();
+        for (Map.Entry<Integer, Integer> aa : list) {
+            temp.put(aa.getKey(), aa.getValue());
+        }
+        System.out.println("\n:\nTop 5 proactive users by overall criterias:");
+        int count = 0;
+        for (Map.Entry<Integer, Integer> entry : temp.entrySet()) {
+            if (count >= 5) {
+                return;
+            }
+            System.out.println("User Id = " + entry.getKey() + " Sum of post, likes and comments = " + entry.getValue());
+            count++;
+        }
+    }
     
 }
