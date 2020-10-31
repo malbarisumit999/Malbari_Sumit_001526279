@@ -101,5 +101,7 @@ public class Lab7 {
         helper.inactiveUsersBasedOnPosts();
         
         helper.inactiveUsersBasedOnComments();
+        
+        helper.inactiveOverall();
     }
 }
