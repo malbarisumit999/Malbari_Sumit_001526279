@@ -95,5 +95,9 @@ public class Lab7 {
         helper.getAverageLikesPerCommets();
         
         helper.postWithMostLikedComments();
+        
+        helper.postWithMostComments();
+        
+        helper.inactiveUsersBasedOnPosts();
     }
 }
