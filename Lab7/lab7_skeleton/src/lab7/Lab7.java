@@ -99,5 +99,7 @@ public class Lab7 {
         helper.postWithMostComments();
         
         helper.inactiveUsersBasedOnPosts();
+        
+        helper.inactiveUsersBasedOnComments();
     }
 }
