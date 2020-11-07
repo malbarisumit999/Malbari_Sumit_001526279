@@ -6,8 +6,10 @@
 package userinterface.SystemAdminWorkArea;
 
 import Business.Customer.Customer;
+import Business.DeliveryMan.DeliveryMan;
 import Business.EcoSystem;
 import Business.Role.CustomerRole;
+import Business.Role.DeliverManRole;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
@@ -18,7 +20,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author adwai
  */
-public class ManageCustomers extends javax.swing.JPanel {
+public class ManageDeliveryMan extends javax.swing.JPanel {
 
     /**
      * Creates new form ManageCustomers
@@ -27,23 +29,23 @@ public class ManageCustomers extends javax.swing.JPanel {
     private EcoSystem ecosystem;
     private UserAccount user;
     
-    public ManageCustomers(JPanel userProcessContainer, EcoSystem ecosystem) {
+    public ManageDeliveryMan(JPanel userProcessContainer, EcoSystem ecosystem) {
         initComponents();
         
         this.userProcessContainer = userProcessContainer;
         this.ecosystem = ecosystem;
-        populateCustomerTable();
+        populateDeliveryManTable();
     }
     
     
 
-    public void populateCustomerTable(){
+    public void populateDeliveryManTable(){
         
-        DefaultTableModel tablemodel = (DefaultTableModel) tblCustomers.getModel();
+        DefaultTableModel tablemodel = (DefaultTableModel) tblDeliveryMan.getModel();
         
         tablemodel.setRowCount(0);
         for(UserAccount user: ecosystem.getUserAccountDirectory().getUserAccountList()){
-            if(user.getRole().getClass().getName()=="Business.Role.CustomerRole"){
+            if(user.getRole().getClass().getName()=="Business.Role.DeliverManRole"){
                 Object [] row = new Object[3];
                 row[0] = user.getName();
                 row[1] = user.getUsername();
@@ -64,7 +66,7 @@ public class ManageCustomers extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblCustomers = new javax.swing.JTable();
+        tblDeliveryMan = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -74,10 +76,10 @@ public class ManageCustomers extends javax.swing.JPanel {
         btnUpdate = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
         btnSave = new javax.swing.JButton();
-        btnCreateCustomer = new javax.swing.JButton();
+        btnRegisterDeliveryMan = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
 
-        tblCustomers.setModel(new javax.swing.table.DefaultTableModel(
+        tblDeliveryMan.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -85,7 +87,7 @@ public class ManageCustomers extends javax.swing.JPanel {
                 "Name", "UserName", "Password"
             }
         ));
-        jScrollPane1.setViewportView(tblCustomers);
+        jScrollPane1.setViewportView(tblDeliveryMan);
 
         jLabel1.setText("Name:");
 
@@ -114,10 +116,10 @@ public class ManageCustomers extends javax.swing.JPanel {
             }
         });
 
-        btnCreateCustomer.setText("Create Cusomer");
-        btnCreateCustomer.addActionListener(new java.awt.event.ActionListener() {
+        btnRegisterDeliveryMan.setText("Register DeliveryMan");
+        btnRegisterDeliveryMan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCreateCustomerActionPerformed(evt);
+                btnRegisterDeliveryManActionPerformed(evt);
             }
         });
 
@@ -160,7 +162,7 @@ public class ManageCustomers extends javax.swing.JPanel {
                                 .addComponent(btnSave))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(203, 203, 203)
-                                .addComponent(btnCreateCustomer)))))
+                                .addComponent(btnRegisterDeliveryMan)))))
                 .addContainerGap(116, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -184,7 +186,7 @@ public class ManageCustomers extends javax.swing.JPanel {
                     .addComponent(jLabel3)
                     .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(btnCreateCustomer)
+                .addComponent(btnRegisterDeliveryMan)
                 .addGap(29, 29, 29)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -196,24 +198,24 @@ public class ManageCustomers extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnCreateCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateCustomerActionPerformed
+    private void btnRegisterDeliveryManActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterDeliveryManActionPerformed
         // TODO add your handling code here:
-        UserAccount userAccount = ecosystem.getUserAccountDirectory().createUserAccount(txtName.getText(), txtUserName.getText(), txtPassword.getText(), null, new CustomerRole());
-        Customer customer = ecosystem.getCustomerDirectory().createUserAccount(txtUserName.getText());
-        populateCustomerTable();
+        UserAccount userAccount = ecosystem.getUserAccountDirectory().createUserAccount(txtName.getText(), txtUserName.getText(), txtPassword.getText(), null, new DeliverManRole());
+        DeliveryMan deliveryman = ecosystem.getDeliveryManDirectory().createUserAccount(txtUserName.getText());
+        populateDeliveryManTable();
         txtName.setText("");
         txtUserName.setText("");
         txtPassword.setText("");
-    }//GEN-LAST:event_btnCreateCustomerActionPerformed
+    }//GEN-LAST:event_btnRegisterDeliveryManActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
-        int selectRow = tblCustomers.getSelectedRow();
+        int selectRow = tblDeliveryMan.getSelectedRow();
 
         if(selectRow>=0){
-            String name = (String) tblCustomers.getValueAt(selectRow, 0);
-            String username= (String) tblCustomers.getValueAt(selectRow, 1);
-            String password= (String) tblCustomers.getValueAt(selectRow, 2);
+            String name = (String) tblDeliveryMan.getValueAt(selectRow, 0);
+            String username= (String) tblDeliveryMan.getValueAt(selectRow, 1);
+            String password= (String) tblDeliveryMan.getValueAt(selectRow, 2);
             user=ecosystem.getUserAccountDirectory().authenticateUser(username, password);
 
             txtName.setText(name+"");
@@ -233,7 +235,7 @@ public class ManageCustomers extends javax.swing.JPanel {
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
         ecosystem.getUserAccountDirectory().updateUserAccount(user, txtName.getText(), txtUserName.getText(), txtPassword.getText());
-        populateCustomerTable();
+        populateDeliveryManTable();
         
             txtName.setText("");
             txtUserName.setText("");
@@ -242,19 +244,19 @@ public class ManageCustomers extends javax.swing.JPanel {
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
-        int selectedRow = tblCustomers.getSelectedRow();
+        int selectedRow = tblDeliveryMan.getSelectedRow();
         if(selectedRow>=0){
             int selectionButton = JOptionPane.YES_NO_OPTION;
             int selectionResult = JOptionPane.showConfirmDialog(null, "Confirm delete?","Warning",selectionButton);
             if(selectionResult == JOptionPane.YES_OPTION){
-                String username= (String) tblCustomers.getValueAt(selectedRow, 1);
-                String pwd= (String) tblCustomers.getValueAt(selectedRow, 2);
+                String username= (String) tblDeliveryMan.getValueAt(selectedRow, 1);
+                String pwd= (String) tblDeliveryMan.getValueAt(selectedRow, 2);
                 UserAccount user=ecosystem.getUserAccountDirectory().authenticateUser(username, pwd);
 
                
                 ecosystem.getUserAccountDirectory().deleteUserAccount(user);
-                ecosystem.getCustomerDirectory().deleteCustomer(user.getUsername());
-                populateCustomerTable();
+                ecosystem.getDeliveryManDirectory().deleteDeliveryMan(user.getUsername());
+                populateDeliveryManTable();
             }
         }else{
             JOptionPane.showMessageDialog(null, "Please select a row to delete the account");
@@ -272,15 +274,15 @@ public class ManageCustomers extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
-    private javax.swing.JButton btnCreateCustomer;
     private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnRegisterDeliveryMan;
     private javax.swing.JButton btnSave;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tblCustomers;
+    private javax.swing.JTable tblDeliveryMan;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtPassword;
     private javax.swing.JTextField txtUserName;
