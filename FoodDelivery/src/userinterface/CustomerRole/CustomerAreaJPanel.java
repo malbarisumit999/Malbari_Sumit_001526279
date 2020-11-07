@@ -4,7 +4,9 @@
  */
 package userinterface.CustomerRole;
 
+import Business.Customer.Customer;
 import Business.EcoSystem;
+import Business.Order.Order;
 import Business.Restaurant.Restaurant;
 
 import Business.UserAccount.UserAccount;
@@ -34,6 +36,8 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
         this.account = account;
         //valueLabel.setText(enterprise.getName());
         populateRequestTable();
+        populatePreviousOrderTable();
+        
     }
     
     public void populateRequestTable(){
@@ -53,7 +57,28 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
                 }
     }
 
-    
+    public void populatePreviousOrderTable(){
+        DefaultTableModel tablemodel = (DefaultTableModel) tblPreviousOrders.getModel();
+        tablemodel.setRowCount(0);
+         
+        for (Customer cust:ecosystem.getCustomerDirectory().getCustomerDirectory()) {
+           if (cust.getUserName().equals(account.getUsername())) {
+               // System.out.println(restro.getOrderList());
+               for(Order menu:cust.getOrderList()){
+                Object[] row = new Object[4];
+                row[0] = menu;
+                row[1] = menu.getRestaurantName();
+               
+                row[2] = menu.getPrice();
+                row[3] = menu.getStatus();
+                tablemodel.addRow(row);
+               }
+                
+            }
+            
+        }
+        
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

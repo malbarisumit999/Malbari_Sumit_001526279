@@ -4,6 +4,7 @@
  */
 package userinterface.CustomerRole;
 
+import Business.Customer.Customer;
 import Business.EcoSystem;
 import Business.Organization;
 import Business.Restaurant.Dishes;
@@ -83,8 +84,8 @@ public class MenuPanel extends javax.swing.JPanel {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        requestTestJButton = new javax.swing.JButton();
-        messageJTextField = new javax.swing.JTextField();
+        btnOrder = new javax.swing.JButton();
+        txtAddress = new javax.swing.JTextField();
         backJButton = new javax.swing.JButton();
         valueLabel = new javax.swing.JLabel();
         enterpriseLabel = new javax.swing.JLabel();
@@ -111,14 +112,14 @@ public class MenuPanel extends javax.swing.JPanel {
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        requestTestJButton.setText("Order");
-        requestTestJButton.addActionListener(new java.awt.event.ActionListener() {
+        btnOrder.setText("Order");
+        btnOrder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                requestTestJButtonActionPerformed(evt);
+                btnOrderActionPerformed(evt);
             }
         });
-        add(requestTestJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 490, 100, -1));
-        add(messageJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 430, 150, -1));
+        add(btnOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 490, 100, -1));
+        add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 430, 150, -1));
 
         backJButton.setText("<<Back");
         backJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -206,11 +207,18 @@ public class MenuPanel extends javax.swing.JPanel {
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 430, 80, -1));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void requestTestJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestTestJButtonActionPerformed
+    private void btnOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderActionPerformed
         
+        String address=txtAddress.getText();
+        restaurant.addOrder(restaurant.getName(), userAccount.getUsername(), null, items, String.valueOf(sum) , address);
+        for(Customer cust:ecosystem.getCustomerDirectory().getCustomerDirectory()){
+            if(userAccount.getUsername().equals(cust.getUserName())){
+                cust.addOrder(restaurant.getName(), userAccount.getUsername(), null, items, String.valueOf(sum) , address);
+                JOptionPane.showMessageDialog(null, "You Order placed successfully");
+            }
+        }        
         
-        
-    }//GEN-LAST:event_requestTestJButtonActionPerformed
+    }//GEN-LAST:event_btnOrderActionPerformed
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
         
@@ -228,7 +236,7 @@ public class MenuPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         int selectedRow = tblMenu.getSelectedRow();
         if(selectedRow<0){
-            JOptionPane.showMessageDialog(null,"Please select a row from the table to view details","Warning",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Please select a row from the table to add","Warning",JOptionPane.WARNING_MESSAGE);
         }
         else{
             Dishes dishItem=(Dishes)tblMenu.getValueAt(selectedRow, 0);
@@ -257,6 +265,7 @@ public class MenuPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backJButton;
     private javax.swing.JButton btnAddToCart;
+    private javax.swing.JButton btnOrder;
     private javax.swing.JButton btnRemoveFromCart;
     private javax.swing.JLabel enterpriseLabel;
     private javax.swing.JLabel jLabel1;
@@ -264,10 +273,9 @@ public class MenuPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField messageJTextField;
-    private javax.swing.JButton requestTestJButton;
     private javax.swing.JTable tblCart;
     private javax.swing.JTable tblMenu;
+    private javax.swing.JTextField txtAddress;
     private javax.swing.JLabel valueLabel;
     // End of variables declaration//GEN-END:variables
 }

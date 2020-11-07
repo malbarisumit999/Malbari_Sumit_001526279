@@ -5,6 +5,7 @@
  */
 package Business.Restaurant;
 
+import Business.Order.Order;
 import java.util.ArrayList;
 
 /**
@@ -17,11 +18,12 @@ public class Restaurant {
     private String address;
     private String number;
     private ArrayList<Dishes> Menu;
-    
+    private ArrayList<Order> orderList;
 
      public Restaurant(String userName){
         this.userName = userName;
         Menu = new ArrayList<Dishes>();
+        orderList=new ArrayList<Order>();
     }
     
     public String getName() {
@@ -70,6 +72,29 @@ public class Restaurant {
     
     public void removeFoodItem(Dishes menu){
          Menu.remove(menu);
+    }
+
+    public ArrayList<Order> getOrderList() {
+        return orderList;
+    }
+
+    public void setOrderList(ArrayList<Order> orderList) {
+        this.orderList = orderList;
+    }
+    
+    int id = 1;
+      public void addOrder(String restaurentName, String customerName, String deliverMan, ArrayList<Dishes> Order, String price, String deliveryAddress) {
+        Order order=new Order();
+        order.setOrderId(String.valueOf(id));
+        order.setCustomerName(customerName);
+        order.setRestaurantName(restaurentName);
+        order.setDeliveryMan(deliverMan);
+        order.setOrder(Order);
+        order.setPrice(price);
+        order.setDeliveryAddress(deliveryAddress);
+        order.setStatus("New Order");
+        orderList.add(order);
+        id++;
     }
     
     @Override
