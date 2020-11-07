@@ -15,6 +15,7 @@ public class RestaurantDirectory {
     
     private ArrayList<Restaurant> restaurantDirectory;
     private Restaurant restaurant;
+    private Dishes menu;
     public RestaurantDirectory(){
         restaurantDirectory = new ArrayList<Restaurant>();
     }
@@ -58,6 +59,17 @@ public class RestaurantDirectory {
             }
         }
     
+    }
+    
+    public Dishes AddMenuDishes(Restaurant restro,String name,String desc,String amount){
+        menu=new Dishes(name, desc, amount);
+        restro.addFoodItem(menu);
+        return menu;
+    }
+    
+    public void DeleteDishes(Restaurant restro,Dishes menu){
+        restro.removeFoodItem(menu);
+        
     }
     
 }
