@@ -46,6 +46,8 @@ public class Dishes {
         this.price = price;
     }
     
-    
-    
+    @Override
+    public String toString() {
+        return name;
+    }
 }
