@@ -10,9 +10,15 @@ package Business.Restaurant;
  * @author harold
  */
 public class Restaurant {
-     private String name;
+    private String name;
     private String userName;
+    private String address;
+    private String number;
 
+     public Restaurant(String userName){
+        this.userName = userName;
+    }
+    
     public String getName() {
         return name;
     }
@@ -28,9 +34,23 @@ public class Restaurant {
     public void setUserName(String userName) {
         this.userName = userName;
     }
-     public Restaurant(String userName){
-        this.userName = userName;
+
+    public String getAddress() {
+        return address;
     }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
+    
     
     
     

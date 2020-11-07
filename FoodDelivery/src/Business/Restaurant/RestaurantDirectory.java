@@ -42,6 +42,13 @@ public class RestaurantDirectory {
         restaurantDirectory.add(restaurant);
         return restaurant;
     }
+     
+     public void updateRestaurantInfo(Restaurant restro, String name,String number,String address ){
+         restro.setName(name);
+         restro.setAddress(address);
+         restro.setNumber(number);
+     }
+     
     
     
     public void deleteRestaurant(String username){
