@@ -72,5 +72,9 @@ public class Restaurant {
          Menu.remove(menu);
     }
     
+    @Override
+    public String toString() {
+        return name;
+    }
     
 }

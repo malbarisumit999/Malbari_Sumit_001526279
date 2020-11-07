@@ -5,10 +5,12 @@
 package userinterface.CustomerRole;
 
 import Business.EcoSystem;
+import Business.Restaurant.Restaurant;
 
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -19,23 +21,36 @@ import javax.swing.table.DefaultTableModel;
 public class CustomerAreaJPanel extends javax.swing.JPanel {
 
     private JPanel userProcessContainer;
-
-    private UserAccount userAccount;
+    private EcoSystem ecosystem;
+    private UserAccount account;
     /**
      * Creates new form DoctorWorkAreaJPanel
      */
-    public CustomerAreaJPanel(JPanel userProcessContainer, UserAccount account) {
+    public CustomerAreaJPanel(JPanel userProcessContainer, UserAccount account,EcoSystem ecosystem) {
         initComponents();
         
         this.userProcessContainer = userProcessContainer;
-      
-        this.userAccount = account;
+        this.ecosystem = ecosystem;
+        this.account = account;
         //valueLabel.setText(enterprise.getName());
         populateRequestTable();
     }
     
     public void populateRequestTable(){
+         DefaultTableModel tablemodel = (DefaultTableModel) tblRestaurant.getModel();
         
+         tablemodel.setRowCount(0);
+         
+       
+                Object[] row = new Object[3];
+                //System.out.println();
+                for(Restaurant restro:ecosystem.getRestaurantDirectory().getRestaurantDirectory()){
+                     row[0] = restro;
+                     //System.out.println(restro.getAdminUName());
+                     row[1] = restro.getAddress();
+                     row[2] = restro.getNumber();
+                     tablemodel.addRow(row);
+                }
     }
 
     
@@ -197,7 +212,19 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderActionPerformed
-        
+        int selectedRow = tblRestaurant.getSelectedRow();
+        if(selectedRow<0){
+            JOptionPane.showMessageDialog(null,"Please select a row from the table to view details","Warning",JOptionPane.WARNING_MESSAGE);
+        }
+        else{
+           Restaurant restaurant = (Restaurant)tblRestaurant.getValueAt(selectedRow, 0);
+            
+                
+                 MenuPanel manageMenuPanel=new MenuPanel(userProcessContainer,account,ecosystem,restaurant);
+                 userProcessContainer.add("MenuPanel",manageMenuPanel);
+                 CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+                 layout.next(userProcessContainer);
+        }
         
         
     }//GEN-LAST:event_btnOrderActionPerformed
