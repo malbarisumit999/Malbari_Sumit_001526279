@@ -110,8 +110,11 @@ public class MenuPanel extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(jTable1);
 
+        setBackground(new java.awt.Color(204, 204, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btnOrder.setBackground(new java.awt.Color(0, 0, 0));
+        btnOrder.setForeground(new java.awt.Color(255, 255, 255));
         btnOrder.setText("Order");
         btnOrder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -121,6 +124,8 @@ public class MenuPanel extends javax.swing.JPanel {
         add(btnOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 490, 100, -1));
         add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 430, 150, -1));
 
+        backJButton.setBackground(new java.awt.Color(0, 0, 0));
+        backJButton.setForeground(new java.awt.Color(255, 255, 255));
         backJButton.setText("<<Back");
         backJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -161,6 +166,8 @@ public class MenuPanel extends javax.swing.JPanel {
 
         add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, -1, 130));
 
+        btnAddToCart.setBackground(new java.awt.Color(0, 0, 0));
+        btnAddToCart.setForeground(new java.awt.Color(255, 255, 255));
         btnAddToCart.setText("Add To Cart");
         btnAddToCart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -194,6 +201,8 @@ public class MenuPanel extends javax.swing.JPanel {
 
         add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, -1, 130));
 
+        btnRemoveFromCart.setBackground(new java.awt.Color(0, 0, 0));
+        btnRemoveFromCart.setForeground(new java.awt.Color(255, 255, 255));
         btnRemoveFromCart.setText("Remove Item");
         btnRemoveFromCart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

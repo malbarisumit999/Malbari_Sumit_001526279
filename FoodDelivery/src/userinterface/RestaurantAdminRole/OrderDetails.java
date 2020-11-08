@@ -11,6 +11,7 @@ import Business.Order.Order;
 import Business.Restaurant.Dishes;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -70,6 +71,8 @@ public class OrderDetails extends javax.swing.JPanel {
         btnBack = new javax.swing.JButton();
         btnStatus = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(204, 204, 255));
+
         tblOrderDetails.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -97,6 +100,8 @@ public class OrderDetails extends javax.swing.JPanel {
 
         lblOrderID.setText("jLabel3");
 
+        btnBack.setBackground(new java.awt.Color(0, 0, 0));
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("<< Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -104,6 +109,8 @@ public class OrderDetails extends javax.swing.JPanel {
             }
         });
 
+        btnStatus.setBackground(new java.awt.Color(0, 0, 0));
+        btnStatus.setForeground(new java.awt.Color(255, 255, 255));
         btnStatus.setText("Change Status to Ready");
         btnStatus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -156,6 +163,7 @@ public class OrderDetails extends javax.swing.JPanel {
             if(order.getCustomerName().equals(cust.getName())){
                 for(Order order : cust.getOrderList()){
                     order.setStatus("Ready to Deliver");
+                    JOptionPane.showMessageDialog(null, "Status Updated Successfully");
                 }
             }
         }

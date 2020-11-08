@@ -80,6 +80,8 @@ public class ManageRestaurants extends javax.swing.JPanel {
         btnRestrauntAdmin = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
 
+        setForeground(new java.awt.Color(204, 204, 255));
+
         tblRestrauntAdmin.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -96,6 +98,8 @@ public class ManageRestaurants extends javax.swing.JPanel {
 
         jLabel3.setText("Password:");
 
+        btnUpdate.setBackground(new java.awt.Color(0, 0, 0));
+        btnUpdate.setForeground(new java.awt.Color(255, 255, 255));
         btnUpdate.setText("Update");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -103,6 +107,8 @@ public class ManageRestaurants extends javax.swing.JPanel {
             }
         });
 
+        btnDelete.setBackground(new java.awt.Color(0, 0, 0));
+        btnDelete.setForeground(new java.awt.Color(255, 255, 255));
         btnDelete.setText("Delete");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,6 +116,8 @@ public class ManageRestaurants extends javax.swing.JPanel {
             }
         });
 
+        btnSave.setBackground(new java.awt.Color(0, 0, 0));
+        btnSave.setForeground(new java.awt.Color(255, 255, 255));
         btnSave.setText("Save");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -117,13 +125,17 @@ public class ManageRestaurants extends javax.swing.JPanel {
             }
         });
 
-        btnRestrauntAdmin.setText("Restraunt admin");
+        btnRestrauntAdmin.setBackground(new java.awt.Color(0, 0, 0));
+        btnRestrauntAdmin.setForeground(new java.awt.Color(255, 255, 255));
+        btnRestrauntAdmin.setText("Restraunt registration");
         btnRestrauntAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRestrauntAdminActionPerformed(evt);
             }
         });
 
+        btnBack.setBackground(new java.awt.Color(0, 0, 0));
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("<<Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
