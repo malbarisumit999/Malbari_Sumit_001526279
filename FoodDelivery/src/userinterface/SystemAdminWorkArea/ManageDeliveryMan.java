@@ -212,12 +212,18 @@ public class ManageDeliveryMan extends javax.swing.JPanel {
 
     private void btnRegisterDeliveryManActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterDeliveryManActionPerformed
         // TODO add your handling code here:
-        UserAccount userAccount = ecosystem.getUserAccountDirectory().createUserAccount(txtName.getText(), txtUserName.getText(), txtPassword.getText(), null, new DeliverManRole());
+        if(ecosystem.getUserAccountDirectory().checkIfUsernameIsUnique(txtUserName.getText())){
+           UserAccount userAccount = ecosystem.getUserAccountDirectory().createUserAccount(txtName.getText(), txtUserName.getText(), txtPassword.getText(), null, new DeliverManRole());
         DeliveryMan deliveryman = ecosystem.getDeliveryManDirectory().createUserAccount(txtUserName.getText());
         populateDeliveryManTable();
         txtName.setText("");
         txtUserName.setText("");
-        txtPassword.setText("");
+        txtPassword.setText(""); 
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Username is not unique");
+        }
+        
     }//GEN-LAST:event_btnRegisterDeliveryManActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed

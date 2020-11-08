@@ -213,12 +213,17 @@ public class ManageRestaurants extends javax.swing.JPanel {
 
     private void btnRestrauntAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRestrauntAdminActionPerformed
         // TODO add your handling code here:
-        UserAccount userAccount = ecosystem.getUserAccountDirectory().createUserAccount(txtName.getText(), txtUserName.getText(), txtPassword.getText(), null, new AdminRole());
+        if(ecosystem.getUserAccountDirectory().checkIfUsernameIsUnique(txtUserName.getText())){
+            UserAccount userAccount = ecosystem.getUserAccountDirectory().createUserAccount(txtName.getText(), txtUserName.getText(), txtPassword.getText(), null, new AdminRole());
         Restaurant restaurant = ecosystem.getRestaurantDirectory().createUserAccount(txtUserName.getText());
         populateRestrauntTable();
         txtName.setText("");
         txtUserName.setText("");
         txtPassword.setText("");
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Username is not unique");
+        }
     }//GEN-LAST:event_btnRestrauntAdminActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
