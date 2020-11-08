@@ -17,14 +17,19 @@ public class DeliveryMan {
      private String name;
     private String userName;
     private ArrayList<Order> orderList;
+    private String address;
+    private String number;
     
-    public void DeliveryMan(){
+    
+    
+    public DeliveryMan(String UserName){
+        this.userName=UserName;
         orderList = new ArrayList<Order>();
     }
     
      public void addOrder(String restaurantName, String customerName, String deliverMan, ArrayList<Dishes> Order, String cost, String deliveryAddress) {
         Order order=new Order();
-        //order.setOrder_id(String.valueOf(id));
+        
         order.setCustomerName(customerName);
         order.setRestaurantName(restaurantName);
         order.setDeliveryMan(deliverMan);
@@ -36,12 +41,31 @@ public class DeliveryMan {
         
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
+     
+     
+     
     public ArrayList<Order> getOrderList() {
         return orderList;
     }
 
-    public void setOrderList(ArrayList<Order> orderList) {
-        this.orderList = orderList;
+    public void setOrderList(ArrayList<Order> order) {
+        this.orderList = order;
     }
 
     public String getName() {
@@ -61,9 +85,7 @@ public class DeliveryMan {
     }
     
     
-    public DeliveryMan(String userName){
-        this.userName = userName;
-    }
+  
     
      @Override
     public String toString() {

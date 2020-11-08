@@ -66,6 +66,8 @@ public class DeliveryManAssignment extends javax.swing.JPanel {
         btnBack = new javax.swing.JButton();
         btnOrderAssignment = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(204, 204, 255));
+
         tblDeliveryMan.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -87,6 +89,8 @@ public class DeliveryManAssignment extends javax.swing.JPanel {
             tblDeliveryMan.getColumnModel().getColumn(0).setResizable(false);
         }
 
+        btnBack.setBackground(new java.awt.Color(0, 0, 0));
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("<< Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -94,6 +98,8 @@ public class DeliveryManAssignment extends javax.swing.JPanel {
             }
         });
 
+        btnOrderAssignment.setBackground(new java.awt.Color(0, 0, 0));
+        btnOrderAssignment.setForeground(new java.awt.Color(255, 255, 255));
         btnOrderAssignment.setText("Assign Order");
         btnOrderAssignment.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -109,13 +115,14 @@ public class DeliveryManAssignment extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnBack)))
+                        .addComponent(btnBack))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(144, 144, 144)
-                        .addComponent(btnOrderAssignment)))
-                .addContainerGap(13, Short.MAX_VALUE))
+                        .addComponent(btnOrderAssignment))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 577, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(196, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -126,7 +133,7 @@ public class DeliveryManAssignment extends javax.swing.JPanel {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37)
                 .addComponent(btnOrderAssignment)
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addContainerGap(161, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -141,8 +148,8 @@ public class DeliveryManAssignment extends javax.swing.JPanel {
             
             DeliveryMan deliveryMan  = (DeliveryMan)tblDeliveryMan.getValueAt(selectedRow, 0);   
             deliveryMan.getOrderList().add(order);
-            order.setStatus("Assign to Deliveryman");
-            
+            order.setStatus("Assigned to Deliveryman");
+            JOptionPane.showMessageDialog(null, "Assigned to Delivery Man");
             
         }
     }//GEN-LAST:event_btnOrderAssignmentActionPerformed

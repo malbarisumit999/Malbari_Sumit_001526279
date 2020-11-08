@@ -99,6 +99,8 @@ public class ManageMenu extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(jTable1);
 
+        setBackground(new java.awt.Color(204, 204, 255));
+
         jLabel1.setText("Food Name:");
 
         jLabel2.setText("Food Description:");
@@ -114,6 +116,8 @@ public class ManageMenu extends javax.swing.JPanel {
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel4.setText("Menu Catalogue");
 
+        btnAddFoodItem.setBackground(new java.awt.Color(0, 0, 0));
+        btnAddFoodItem.setForeground(new java.awt.Color(255, 255, 255));
         btnAddFoodItem.setText("Add Food Item");
         btnAddFoodItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -121,6 +125,8 @@ public class ManageMenu extends javax.swing.JPanel {
             }
         });
 
+        btnBack.setBackground(new java.awt.Color(0, 0, 0));
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("<<Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -151,6 +157,8 @@ public class ManageMenu extends javax.swing.JPanel {
             tblMenuCatalogue.getColumnModel().getColumn(2).setResizable(false);
         }
 
+        btnDelete.setBackground(new java.awt.Color(0, 0, 0));
+        btnDelete.setForeground(new java.awt.Color(255, 255, 255));
         btnDelete.setText("Delete");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

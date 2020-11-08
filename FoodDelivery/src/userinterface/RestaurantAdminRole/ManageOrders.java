@@ -74,6 +74,9 @@ public class ManageOrders extends javax.swing.JPanel {
         btnBack = new javax.swing.JButton();
         btnAssignDeliveryMan = new javax.swing.JButton();
         btnViewOrder = new javax.swing.JButton();
+        btnRefresh = new javax.swing.JButton();
+
+        setBackground(new java.awt.Color(204, 204, 255));
 
         tblOrderDetail.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -100,6 +103,8 @@ public class ManageOrders extends javax.swing.JPanel {
             tblOrderDetail.getColumnModel().getColumn(4).setResizable(false);
         }
 
+        btnBack.setBackground(new java.awt.Color(0, 0, 0));
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("<<Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -107,6 +112,8 @@ public class ManageOrders extends javax.swing.JPanel {
             }
         });
 
+        btnAssignDeliveryMan.setBackground(new java.awt.Color(0, 0, 0));
+        btnAssignDeliveryMan.setForeground(new java.awt.Color(255, 255, 255));
         btnAssignDeliveryMan.setText("Assign Delivery Man to Order");
         btnAssignDeliveryMan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,10 +121,21 @@ public class ManageOrders extends javax.swing.JPanel {
             }
         });
 
+        btnViewOrder.setBackground(new java.awt.Color(0, 0, 0));
+        btnViewOrder.setForeground(new java.awt.Color(255, 255, 255));
         btnViewOrder.setText("View Order");
         btnViewOrder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnViewOrderActionPerformed(evt);
+            }
+        });
+
+        btnRefresh.setBackground(new java.awt.Color(0, 0, 0));
+        btnRefresh.setForeground(new java.awt.Color(255, 255, 255));
+        btnRefresh.setText("Refresh");
+        btnRefresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRefreshActionPerformed(evt);
             }
         });
 
@@ -126,19 +144,21 @@ public class ManageOrders extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(75, 75, 75)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnBack))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(94, 94, 94)
-                        .addComponent(btnViewOrder)
-                        .addGap(69, 69, 69)
-                        .addComponent(btnAssignDeliveryMan)))
-                .addContainerGap(86, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(btnBack)
+                .addContainerGap(524, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(94, 94, 94)
+                .addComponent(btnViewOrder)
+                .addGap(69, 69, 69)
+                .addComponent(btnAssignDeliveryMan)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnRefresh)
+                .addGap(34, 34, 34))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -150,7 +170,8 @@ public class ManageOrders extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAssignDeliveryMan)
-                    .addComponent(btnViewOrder))
+                    .addComponent(btnViewOrder)
+                    .addComponent(btnRefresh))
                 .addContainerGap(152, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -194,10 +215,16 @@ public class ManageOrders extends javax.swing.JPanel {
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
+    private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
+        // TODO add your handling code here:
+        populateOrderTable();
+    }//GEN-LAST:event_btnRefreshActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAssignDeliveryMan;
     private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnRefresh;
     private javax.swing.JButton btnViewOrder;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblOrderDetail;

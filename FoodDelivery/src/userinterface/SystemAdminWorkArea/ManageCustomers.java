@@ -77,6 +77,8 @@ public class ManageCustomers extends javax.swing.JPanel {
         btnCreateCustomer = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(204, 204, 255));
+
         tblCustomers.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -93,6 +95,8 @@ public class ManageCustomers extends javax.swing.JPanel {
 
         jLabel3.setText("Password:");
 
+        btnUpdate.setBackground(new java.awt.Color(0, 0, 0));
+        btnUpdate.setForeground(new java.awt.Color(255, 255, 255));
         btnUpdate.setText("Update");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,6 +104,8 @@ public class ManageCustomers extends javax.swing.JPanel {
             }
         });
 
+        btnDelete.setBackground(new java.awt.Color(0, 0, 0));
+        btnDelete.setForeground(new java.awt.Color(255, 255, 255));
         btnDelete.setText("Delete");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -107,6 +113,8 @@ public class ManageCustomers extends javax.swing.JPanel {
             }
         });
 
+        btnSave.setBackground(new java.awt.Color(0, 0, 0));
+        btnSave.setForeground(new java.awt.Color(255, 255, 255));
         btnSave.setText("Save");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,6 +122,8 @@ public class ManageCustomers extends javax.swing.JPanel {
             }
         });
 
+        btnCreateCustomer.setBackground(new java.awt.Color(0, 0, 0));
+        btnCreateCustomer.setForeground(new java.awt.Color(255, 255, 255));
         btnCreateCustomer.setText("Create Cusomer");
         btnCreateCustomer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -121,6 +131,8 @@ public class ManageCustomers extends javax.swing.JPanel {
             }
         });
 
+        btnBack.setBackground(new java.awt.Color(0, 0, 0));
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("<<Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

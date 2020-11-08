@@ -43,20 +43,25 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         enterpriseLabel = new javax.swing.JLabel();
         lblRestName = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(204, 204, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("My Work Area -Adminstrative Role");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, -1, -1));
 
+        btnManageRestroInfo.setBackground(new java.awt.Color(0, 0, 0));
+        btnManageRestroInfo.setForeground(new java.awt.Color(255, 255, 255));
         btnManageRestroInfo.setText("Manage Restaurant Info");
         btnManageRestroInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnManageRestroInfoActionPerformed(evt);
             }
         });
-        add(btnManageRestroInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, 260, -1));
+        add(btnManageRestroInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 240, 260, -1));
 
+        btnManageMenu.setBackground(new java.awt.Color(0, 0, 0));
+        btnManageMenu.setForeground(new java.awt.Color(255, 255, 255));
         btnManageMenu.setText("Manage menu");
         btnManageMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -65,6 +70,8 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         });
         add(btnManageMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 260, -1));
 
+        btnManageOrder.setBackground(new java.awt.Color(0, 0, 0));
+        btnManageOrder.setForeground(new java.awt.Color(255, 255, 255));
         btnManageOrder.setText("Manage Orders");
         btnManageOrder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
