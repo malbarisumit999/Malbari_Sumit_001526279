@@ -117,7 +117,7 @@ public class ManageRestaurants extends javax.swing.JPanel {
             }
         });
 
-        btnRestrauntAdmin.setText("Restraunt admin");
+        btnRestrauntAdmin.setText("Restraunt registration");
         btnRestrauntAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRestrauntAdminActionPerformed(evt);

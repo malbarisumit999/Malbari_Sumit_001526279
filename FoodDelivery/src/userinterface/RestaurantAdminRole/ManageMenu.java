@@ -9,6 +9,7 @@ import Business.EcoSystem;
 import Business.Restaurant.Dishes;
 import Business.Restaurant.Restaurant;
 import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -80,7 +81,7 @@ public class ManageMenu extends javax.swing.JPanel {
         txtPrice = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         btnAddFoodItem = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblMenuCatalogue = new javax.swing.JTable();
         btnDelete = new javax.swing.JButton();
@@ -120,7 +121,12 @@ public class ManageMenu extends javax.swing.JPanel {
             }
         });
 
-        jButton2.setText("<<Back");
+        btnBack.setText("<<Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         tblMenuCatalogue.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -173,7 +179,7 @@ public class ManageMenu extends javax.swing.JPanel {
                                     .addComponent(txtFoodName, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(jButton2)
+                                .addComponent(btnBack)
                                 .addGap(48, 48, 48)
                                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
@@ -195,7 +201,7 @@ public class ManageMenu extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jButton2))
+                    .addComponent(btnBack))
                 .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
@@ -256,11 +262,19 @@ public class ManageMenu extends javax.swing.JPanel {
         
     }//GEN-LAST:event_btnDeleteActionPerformed
 
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnBackActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddFoodItem;
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnDelete;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
